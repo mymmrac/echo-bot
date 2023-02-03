@@ -2,7 +2,7 @@ module github.com/mymmrac/echo-bot
 
 go 1.19
 
-require github.com/mymmrac/telego v0.19.1-0.20230131200736-92535c7a9e5d
+require github.com/mymmrac/telego v0.19.1-0.20230203143055-bec5cfc33b7e
 
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect

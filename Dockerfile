@@ -11,8 +11,13 @@ COPY . .
 
 RUN go build -o /bin/echo-bot .
 
+FROM alpine AS utils
+
+RUN apk --update add ca-certificates && update-ca-certificates
+
 FROM scratch AS release
 
+COPY --from=utils /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=build /bin/echo-bot /echo-bot
 
 ENTRYPOINT ["/echo-bot"]

@@ -11,6 +11,8 @@ github.com/klauspost/compress v1.15.9 h1:wKRjX6JRtDdrE9qwa4b/Cip7ACOshUI4smpCQan
 github.com/klauspost/compress v1.15.9/go.mod h1:PhcZ0MbTNciWF3rruxRgKxI5NkcHHrHUDtV4Yw2GlzU=
 github.com/mymmrac/telego v0.19.1-0.20230131200736-92535c7a9e5d h1:1QlImgw/gPCcQM6K2FMkGUVC16CyuC4NZFmXrjpDO+w=
 github.com/mymmrac/telego v0.19.1-0.20230131200736-92535c7a9e5d/go.mod h1:I427HquI6tvn2H0H+aYJB0IMAkd6LqCMZyeeQQ8UvPQ=
+github.com/mymmrac/telego v0.19.1-0.20230203143055-bec5cfc33b7e h1:l4LlOvC+VgiAZiYOyHUSO6DDOtnsu9O7h9Nz4omWMIQ=
+github.com/mymmrac/telego v0.19.1-0.20230203143055-bec5cfc33b7e/go.mod h1:I427HquI6tvn2H0H+aYJB0IMAkd6LqCMZyeeQQ8UvPQ=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/savsgio/gotils v0.0.0-20220530130905-52f3993e8d6d h1:Q+gqLBOPkFGHyCJxXMRqtUgUbTjI8/Ze8vu8GGyNFwo=
 github.com/savsgio/gotils v0.0.0-20220530130905-52f3993e8d6d/go.mod h1:Gy+0tqhJvgGlqnTF8CVGP0AaGRjwBtXs/a5PA0Y3+A4=

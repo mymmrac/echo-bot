@@ -16,7 +16,7 @@ const envPrefix = "ECHO_BOT_"
 
 func main() {
 	botToken := env("TOKEN")
-	bot, err := telego.NewBot(botToken, telego.WithHealthCheck())
+	bot, err := telego.NewBot(botToken, telego.WithHealthCheck(), telego.WithDefaultDebugLogger())
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
