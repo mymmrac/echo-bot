@@ -6,13 +6,9 @@ The bot will just copy any message sent to it.
 
 ## Configuration
 
-Provide environment variables (in `.evn` file for example):
+Provide environment variables (in `.evn` file for example), see [`.env.example`](.env.example) for reference.
 
-```dotenv
-ECHO_BOT_TOKEN="BOT_TOKEN"
-ECHO_BOT_WEBHOOK_BASE="https://example.com"
-ECHO_BOT_LISTEN_ADDRESS=":443"
-```
+> Note: `ECHO_BOT_LISTEN_URL` env used as health check base URL
 
 ## Run
 

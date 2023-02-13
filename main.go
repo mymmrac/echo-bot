@@ -7,9 +7,11 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/fasthttp/router"
 	"github.com/mymmrac/telego"
 	th "github.com/mymmrac/telego/telegohandler"
 	tu "github.com/mymmrac/telego/telegoutil"
+	"github.com/valyala/fasthttp"
 )
 
 const envPrefix = "ECHO_BOT_"
@@ -26,9 +28,24 @@ func main() {
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 
-	updates, err := bot.UpdatesViaWebhook("/bot"+bot.Token(), telego.WithWebhookSet(&telego.SetWebhookParams{
-		URL: env("WEBHOOK_BASE") + "/bot" + bot.Token(),
-	}))
+	rtr := router.New()
+
+	rtr.GET("/health", func(ctx *fasthttp.RequestCtx) {
+		_, _ = ctx.WriteString("OK")
+		ctx.SetStatusCode(fasthttp.StatusOK)
+	})
+
+	updates, err := bot.UpdatesViaWebhook(
+		"/bot"+bot.Token(),
+		telego.WithWebhookSet(&telego.SetWebhookParams{
+			URL: env("WEBHOOK_BASE") + "/bot" + bot.Token(),
+		}),
+		telego.WithWebhookServer(telego.FastHTTPWebhookServer{
+			Logger: bot.Logger(),
+			Server: &fasthttp.Server{},
+			Router: rtr,
+		}),
+	)
 	assert(err == nil, "Get updates", err)
 
 	bh, err := th.NewBotHandler(bot, updates, th.WithStopTimeout(time.Second*10))

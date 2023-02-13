@@ -18,4 +18,7 @@ FROM scratch AS release
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=build /bin/echo-bot /echo-bot
 
+COPY --from=mymmrac/mini-health:latest /mini-health /mini-health
+HEALTHCHECK CMD ["/mini-health", "-e", "ECHO_BOT_LISTEN_URL", "/health"]
+
 ENTRYPOINT ["/echo-bot"]
